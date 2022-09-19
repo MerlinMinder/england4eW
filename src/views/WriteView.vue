@@ -1,19 +1,29 @@
 <template>
-  <input type="text" v-model="name" placeholder="first-name last-name" />
-  <input type="text" v-model="title" placeholder="Title" />
-  <div class="about">
-    <editor
-      api-key="jsvlfar0ke1dnz3qs8fab25fyog6zo4vrwgfc5hwidmle72z"
-      :init="{
-        height: height * 0.9,
-        width: 290,
-        menubar: true,
-        plugins: ['image', 'link'],
-        skin: 'oxide-dark',
-        statusbar: false,
-      }"
-      v-model="content"
-    />
+  <div id="wrap">
+    <div id="container">
+      <div id="editor">
+        <input class="input" type="text" v-model="title" placeholder="Title" />
+        <input
+          class="input"
+          type="text"
+          v-model="name"
+          placeholder="first-name last-name"
+        />
+        <editor
+          api-key="jsvlfar0ke1dnz3qs8fab25fyog6zo4vrwgfc5hwidmle72z"
+          :init="{
+            height: height * 0.7,
+            width: 290,
+            menubar: true,
+            plugins: ['image', 'link'],
+            skin: 'oxide-dark',
+            statusbar: false,
+          }"
+          v-model="content"
+        />
+      </div>
+      <div id="post" v-html="content"></div>
+    </div>
   </div>
 </template>
 
@@ -27,11 +37,41 @@ const height = window.innerHeight;
 </script>
 
 <style scoped>
-.about {
-  margin: 0;
-  padding: 0;
+#wrap {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#editor {
+  padding-top: 20px;
+  margin-right: 20px;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input {
+  width: 270px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#post {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 270px;
+  border: 2px solid gray;
+  border-radius: 20px;
 }
 </style>

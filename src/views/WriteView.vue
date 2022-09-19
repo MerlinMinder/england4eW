@@ -52,7 +52,7 @@ const height = window.innerHeight;
 
 #editor {
   padding-top: 20px;
-  margin-right: 20px;
+  margin: 0 20px;
   margin-top: 0;
   display: flex;
   align-items: center;
@@ -68,8 +68,9 @@ const height = window.innerHeight;
 }
 
 #post {
+  margin: 0 20px;
   margin-top: 20px;
-  margin-left: 20px;
+
   width: 270px;
   border: 2px solid gray;
   border-radius: 20px;

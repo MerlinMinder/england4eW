@@ -22,7 +22,11 @@
           v-model="content"
         />
       </div>
-      <div id="post" v-html="content"></div>
+      <div id="postwrapper">
+        <div id="title">{{ title }}</div>
+        <div id="post" v-html="content"></div>
+        <div id="name">{{ name }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -67,15 +71,39 @@ const height = window.innerHeight;
   margin-bottom: 20px;
 }
 
-#post {
-  margin: 0 20px;
-  margin-top: 20px;
-  padding: 16px;
-  width: 254.4px;
+#postwrapper {
+  margin: 20px;
+  margin-bottom: 0;
   border: 2px solid gray;
   border-radius: 20px;
+  height: fit-content;
+}
+
+#title {
+  width: 270px;
+  margin-left: 8.2px;
+  padding-top: 10px;
+  height: 30px;
+  font-size: 24px;
+  border-bottom: 2px solid gray;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 20px;
+}
+
+#post {
+  padding: 16px;
+  width: 254.4px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 16px;
+}
+
+#name {
+  height: 20px;
+  width: 270px;
+  font-style: italic;
+  margin-right: 8.2px;
+  text-align: right;
 }
 </style>

@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "deploy": "vite build && firebase deploy",
+    "deploy": "vite build && firebase deploy && git add . && git commit -m 'commit' && git push",
     "preview": "vite preview --port 4173"
   },
   "dependencies": {

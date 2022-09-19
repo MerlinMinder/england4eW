@@ -17,6 +17,7 @@
             menubar: true,
             mobile: {
               menubar: true,
+              toolbar_mode: 'floating',
             },
             plugins: ['image', 'link', 'lists'],
             skin: 'oxide-dark',

@@ -15,10 +15,12 @@
             height: height * 0.7,
             width: 290,
             menubar: true,
+            mobile: {
+              menubar: true,
+            },
             plugins: ['image', 'link', 'lists'],
             skin: 'oxide-dark',
             statusbar: false,
-            menubar: true,
           }"
           v-model="content"
         />

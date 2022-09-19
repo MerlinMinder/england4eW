@@ -15,9 +15,10 @@
             height: height * 0.7,
             width: 290,
             menubar: true,
-            plugins: ['image', 'link'],
+            plugins: ['image', 'link', 'lists'],
             skin: 'oxide-dark',
             statusbar: false,
+            menubar: true,
           }"
           v-model="content"
         />

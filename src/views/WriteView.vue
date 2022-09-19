@@ -70,9 +70,12 @@ const height = window.innerHeight;
 #post {
   margin: 0 20px;
   margin-top: 20px;
-
-  width: 270px;
+  padding: 16px;
+  width: 254.4px;
   border: 2px solid gray;
   border-radius: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 16px;
 }
 </style>

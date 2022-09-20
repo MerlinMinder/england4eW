@@ -12,8 +12,16 @@
       horizontal-order="true"
       id="content"
     >
-      <div v-masonry-tile class="postwrapper" v-for="post in posts">
+      <div
+        v-masonry-tile
+        class="postwrapper"
+        v-for="post in posts"
+        :style="{ borderColor: post.color }"
+      >
         <div class="posttitle">{{ post.title }}</div>
+        <div class="posttime">
+          {{ String(new Date(post.time)).slice(0, 15) }}
+        </div>
         <div class="post" v-html="post.data"></div>
         <div class="name">{{ post.name }}</div>
       </div>
@@ -78,7 +86,7 @@ onMounted(async () => {
 .postwrapper {
   margin: 20px;
   margin-bottom: 0;
-  border: 2px solid gray;
+  border: 5px solid gray;
   width: 284.4px;
   border-radius: 20px;
   height: fit-content;
@@ -88,12 +96,18 @@ onMounted(async () => {
   width: 270px;
   margin-left: 8.2px;
   padding-top: 10px;
-  height: 30px;
-  font-size: 24px;
+  height: 40px;
+  font-size: 26px;
   border-bottom: 2px solid gray;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  font-size: 20px;
+}
+
+.posttime {
+  margin-top: 5px;
+  height: fit-content;
+  width: 270px;
+  text-align: right;
 }
 
 .post {

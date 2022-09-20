@@ -26,8 +26,11 @@
           v-model="content"
         />
       </div>
-      <div id="postwrapper">
+      <div id="postwrapper" :style="{ borderColor: color }">
         <div id="title">{{ title }}</div>
+        <div id="time">
+          {{ String(new Date(Date.now())).slice(0, 15) }}
+        </div>
         <div id="post" v-html="content"></div>
         <div id="name">{{ name }}</div>
       </div>
@@ -39,12 +42,18 @@
 <script setup>
 import { doc, setDoc } from "@firebase/firestore";
 import editor from "@tinymce/tinymce-vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { db } from "../firebase/firebaseinit";
 import router from "../router";
 const content = ref("");
 const name = ref("");
 const title = ref("");
+const color = ref("#000000");
+
+onMounted(() => {
+  color.value = "#" + Math.floor(Math.random() * 16777215).toString(16);
+});
+
 const post = async () => {
   await setDoc(
     doc(db, "posts", String(Date.now())),
@@ -53,12 +62,14 @@ const post = async () => {
       title: title.value,
       name: name.value,
       time: Date.now(),
+      color: color.value,
     },
     { merge: true }
   );
   content.value = "";
   title.value = "";
   name.value = "";
+  color.value = "#000000";
   router.push("/");
 };
 const height = window.innerHeight;
@@ -98,7 +109,7 @@ const height = window.innerHeight;
 #postwrapper {
   margin: 20px;
   margin-bottom: 0;
-  border: 2px solid gray;
+  border: 5px solid gray;
   border-radius: 20px;
   height: fit-content;
 }
@@ -107,12 +118,19 @@ const height = window.innerHeight;
   width: 270px;
   margin-left: 8.2px;
   padding-top: 10px;
-  height: 30px;
-  font-size: 24px;
+  height: 40px;
+  font-size: 26px;
   border-bottom: 2px solid gray;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 20px;
+}
+
+#time {
+  margin-top: 5px;
+  height: fit-content;
+  width: 270px;
+  text-align: right;
 }
 
 #post {

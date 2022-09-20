@@ -11,6 +11,7 @@
     "@tinymce/tinymce-vue": "^5.0.0",
     "firebase": "^9.10.0",
     "vue": "^3.2.38",
+    "vue-masonry": "^0.16.0",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {

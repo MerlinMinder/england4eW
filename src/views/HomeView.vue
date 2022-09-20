@@ -3,13 +3,19 @@
     <h1 id="title">England 4eW</h1>
     <button id="buttonwrite" @click="write">Write</button>
   </div>
-  <div id="wrap">
-    <div id="content">
-      <div class="postwrapper" v-for="post in posts">
-        <div class="posttitle">{{ post.title }}</div>
-        <div class="post" v-html="post.data"></div>
-        <div class="name">{{ post.name }}</div>
-      </div>
+
+  <div
+    v-masonry="containerId"
+    transition-duration="0.3s"
+    item-selector=".postwrapper"
+    fit-width="true"
+    horizontal-order="true"
+    id="content"
+  >
+    <div v-masonry-tile class="postwrapper" v-for="post in posts">
+      <div class="posttitle">{{ post.title }}</div>
+      <div class="post" v-html="post.data"></div>
+      <div class="name">{{ post.name }}</div>
     </div>
   </div>
 </template>
@@ -61,18 +67,6 @@ onMounted(async () => {
 
 #buttonwrite:hover {
   transform: scale(1.1);
-}
-
-#wrap {
-  display: flex;
-  justify-content: center;
-}
-
-#content {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 325px;
 }
 
 .postwrapper {

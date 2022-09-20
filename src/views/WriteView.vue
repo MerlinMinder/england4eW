@@ -35,6 +35,13 @@
         <div id="name">{{ name }}</div>
       </div>
     </div>
+    <button
+      id="buttoncolor"
+      @click="changeColor"
+      :style="{ backgroundColor: color }"
+    >
+      Change Color
+    </button>
     <button id="buttonpost" @click="post">Post</button>
   </div>
 </template>
@@ -50,8 +57,12 @@ const name = ref("");
 const title = ref("");
 const color = ref("#000000");
 
-onMounted(() => {
+const changeColor = () => {
   color.value = "#" + Math.floor(Math.random() * 16777215).toString(16);
+};
+
+onMounted(() => {
+  changeColor();
 });
 
 const post = async () => {
@@ -147,6 +158,14 @@ const height = window.innerHeight;
   font-style: italic;
   margin-right: 8.2px;
   text-align: right;
+}
+
+#buttoncolor {
+  margin-top: 20px;
+  width: fit-content;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 5px;
 }
 
 #buttonpost {

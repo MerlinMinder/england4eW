@@ -3,19 +3,20 @@
     <h1 id="title">England 4eW</h1>
     <button id="buttonwrite" @click="write">Write</button>
   </div>
-
-  <div
-    v-masonry="containerId"
-    transition-duration="0.3s"
-    item-selector=".postwrapper"
-    fit-width="true"
-    horizontal-order="true"
-    id="content"
-  >
-    <div v-masonry-tile class="postwrapper" v-for="post in posts">
-      <div class="posttitle">{{ post.title }}</div>
-      <div class="post" v-html="post.data"></div>
-      <div class="name">{{ post.name }}</div>
+  <div id="wrapper">
+    <div
+      v-masonry="containerId"
+      transition-duration="0.3s"
+      item-selector=".postwrapper"
+      fit-width="true"
+      horizontal-order="true"
+      id="content"
+    >
+      <div v-masonry-tile class="postwrapper" v-for="post in posts">
+        <div class="posttitle">{{ post.title }}</div>
+        <div class="post" v-html="post.data"></div>
+        <div class="name">{{ post.name }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -53,6 +54,11 @@ onMounted(async () => {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: calc(20px + 1.5vw);
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 #buttonwrite {

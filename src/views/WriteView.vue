@@ -32,15 +32,35 @@
         <div id="name">{{ name }}</div>
       </div>
     </div>
+    <button id="buttonpost" @click="post">Post</button>
   </div>
 </template>
 
 <script setup>
+import { doc, setDoc } from "@firebase/firestore";
 import editor from "@tinymce/tinymce-vue";
 import { ref } from "vue";
+import { db } from "../firebase/firebaseinit";
+import router from "../router";
 const content = ref("");
 const name = ref("");
 const title = ref("");
+const post = async () => {
+  await setDoc(
+    doc(db, "posts", String(Date.now())),
+    {
+      data: content.value,
+      title: title.value,
+      name: name.value,
+      time: Date.now(),
+    },
+    { merge: true }
+  );
+  content.value = "";
+  title.value = "";
+  name.value = "";
+  router.push("/");
+};
 const height = window.innerHeight;
 </script>
 
@@ -109,5 +129,19 @@ const height = window.innerHeight;
   font-style: italic;
   margin-right: 8.2px;
   text-align: right;
+}
+
+#buttonpost {
+  margin-top: 20px;
+  width: 280px;
+  height: 40px;
+  font-size: 25px;
+  border-radius: 10px;
+  background-color: lightgray;
+}
+
+#buttonpost:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 </style>

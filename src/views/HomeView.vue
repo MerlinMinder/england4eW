@@ -6,7 +6,7 @@
   <div id="wrapper">
     <div
       v-masonry="containerId"
-      transition-duration="0.3s"
+      transition-duration="1s"
       item-selector=".postwrapper"
       fit-width="true"
       horizontal-order="true"

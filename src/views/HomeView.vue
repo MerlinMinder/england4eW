@@ -98,7 +98,7 @@ onMounted(async () => {
   margin-left: 8.2px;
   padding-top: 10px;
   height: 40px;
-  font-size: 26px;
+  font-size: 22px;
   border-bottom: 2px solid gray;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;

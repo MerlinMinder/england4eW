@@ -97,7 +97,7 @@ onMounted(async () => {
   width: 270px;
   margin-left: 8.2px;
   padding-top: 10px;
-  height: 40px;
+  height: fit-content;
   font-size: 22px;
   border-bottom: 2px solid gray;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,

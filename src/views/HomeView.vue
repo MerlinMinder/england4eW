@@ -47,6 +47,7 @@ onMounted(async () => {
     posts.value.push(doc.data());
   });
   posts.value.sort((a, b) => a.time > b.time);
+  console.log(posts.value);
 });
 </script>
 

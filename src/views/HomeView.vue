@@ -9,7 +9,7 @@
       transition-duration="1s"
       item-selector=".postwrapper"
       fit-width="true"
-      horizontal-order="true"
+      horizontal-order="false"
       id="content"
     >
       <div

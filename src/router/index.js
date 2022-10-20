@@ -9,11 +9,13 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
-    {
-      path: "/write",
-      name: "write",
-      component: () => import("../views/WriteView.vue"),
-    },
+    // when active was route for writing posts
+
+    // {
+    //   path: "/write",
+    //   name: "write",
+    //   component: () => import("../views/WriteView.vue"),
+    // },
   ],
 });
 

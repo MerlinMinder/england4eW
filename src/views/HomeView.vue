@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <h1 id="title">England 4eW</h1>
-    <button id="buttonwrite" @click="write">Write</button>
+    <!-- <button id="buttonwrite" @click="write">Write</button> -->
   </div>
   <div id="wrapper">
     <div
@@ -35,9 +35,11 @@ import { onMounted, ref } from "vue";
 import { db } from "../firebase/firebaseinit";
 import router from "../router";
 
-const write = () => {
-  router.push("/write");
-};
+// when active went to write view
+
+// const write = () => {
+//   router.push("/write");
+// };
 
 const posts = ref([]);
 
@@ -46,7 +48,7 @@ onMounted(async () => {
   postsdata.forEach((doc) => {
     posts.value.push(doc.data());
   });
-  posts.value.sort((a, b) => b.time - a.time);
+  posts.value.sort((a, b) => a.time - b.time);
   console.log(posts.value);
 });
 </script>
